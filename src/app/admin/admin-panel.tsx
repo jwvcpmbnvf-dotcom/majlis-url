@@ -193,7 +193,10 @@ export default function AdminPanel() {
               required
               placeholder="https://drive.google.com/..."
               value={destinationUrl}
-              onChange={(e) => setDestinationUrl(e.target.value)}
+              onChange={(e) => {
+                setDestinationUrl(e.target.value);
+                setError(null);
+              }}
               className="mt-1 block w-full rounded-lg border border-zinc-300 px-3 py-2 text-sm text-zinc-900 outline-none placeholder:text-zinc-400 focus:border-zinc-500 focus:ring-2 focus:ring-zinc-200"
             />
           </div>
@@ -215,12 +218,16 @@ export default function AdminPanel() {
                 placeholder="a"
                 maxLength={64}
                 value={slug}
-                onChange={(e) => setSlug(e.target.value)}
+                onChange={(e) => {
+                  setSlug(e.target.value);
+                  setError(null);
+                }}
                 className="block w-full rounded-r-lg border border-zinc-300 px-3 py-2 text-sm text-zinc-900 outline-none placeholder:text-zinc-400 focus:border-zinc-500 focus:ring-2 focus:ring-zinc-200"
               />
             </div>
             <p className="mt-1 text-xs text-zinc-400">
-              Letters, numbers, - and _. Leave empty for an automatic short code.
+              Type only the code (e.g. <span className="font-mono">drive</span>).
+              Allowed: letters, numbers, - and _. Leave empty for an automatic short code.
             </p>
           </div>
 

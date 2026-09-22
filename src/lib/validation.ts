@@ -30,7 +30,7 @@ export const createLinkSchema = z.object({
     .max(MAX_SLUG_LENGTH, `Short code is too long (max ${MAX_SLUG_LENGTH} characters)`)
     .refine(
       (value) => value === "" || /^[A-Za-z0-9_-]+$/.test(value),
-      "Only letters, numbers, - and _ are allowed"
+      "Only letters (a-z, A-Z), numbers (0-9), - and _ are allowed. Type only the code, not the full URL."
     )
     .refine((value) => value === "" || !isReservedSlug(value), "This short code is reserved")
     .optional()
